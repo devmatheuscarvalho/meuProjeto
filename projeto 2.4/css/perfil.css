@@ -1,0 +1,105 @@
+main {
+  display: flex;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.perfil-container {
+  background: #4b1f8f;
+  border-radius: 12px;
+  padding: 32px;
+  width: 100%;
+  max-width: 480px;
+  text-align: center;
+}
+
+.perfil-avatar {
+  width: 96px;
+  height: 96px;
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  background: #2a0f5a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+}
+
+.perfil-container h2 {
+  margin-bottom: 4px;
+}
+
+.perfil-email {
+  color: #cfc2f8;
+  font-size: 13px;
+  margin-bottom: 24px;
+}
+
+.perfil-aviso {
+  background-color: #3a2d66;
+  color: #d4c3ff;
+  font-size: 12px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  margin-bottom: 24px;
+  text-align: left;
+}
+
+.perfil-bloco {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.perfil-bloco h3 {
+  font-size: 14px;
+  color: #d4c3ff;
+  margin-bottom: 8px;
+}
+
+/* Flexbox com wrap: as categorias ficam lado a lado e quebram de linha quando não cabem. */
+.perfil-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chip {
+  background: #2a0f5a;
+  color: #c9b4ff;
+  font-size: 12px;
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+
+.perfil-lista {
+  list-style: none;
+  font-size: 13px;
+  color: #cfc2f8;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.botao-sair {
+  display: inline-block;
+  margin-top: 8px;
+  background: transparent;
+  border: 1px solid #7b3fe4;
+  color: #c9b4ff;
+  padding: 9px 24px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 13px;
+}
+
+.botao-sair:hover {
+  background: #7b3fe4;
+  color: #fff;
+}
+
+/* Celulares: reduz o espaço interno do cartão. */
+@media (max-width: 480px) {
+  .perfil-container {
+    padding: 20px;
+  }
+}

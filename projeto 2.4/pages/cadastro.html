@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ØfferX - Criar conta</title>
+    <link rel="stylesheet" href="../css/login.css" />
+    <link rel="stylesheet" href="../css/auth-mensagens.css" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/png" href="../img/content.png" />
+  </head>
+  <body id="body">
+    <div id="card">
+      <h1 class="texto-destaque">Criar conta</h1>
+
+      <form id="form-cadastro">
+        <label class="texto-fixo" for="nome-cadastro">Nome completo:</label
+        ><br />
+        <div class="campo-wrapper">
+          <input
+            class="quadro"
+            type="text"
+            name="nome-cadastro"
+            id="nome-cadastro"
+            placeholder="Nome completo"
+            required
+            onblur="validarNome()"
+          />
+        </div>
+        <span id="erro-nome"></span>
+
+        <label class="texto-fixo" for="email-cadastro">E-mail:</label><br />
+        <div class="campo-wrapper">
+          <input
+            class="quadro"
+            type="email"
+            name="email-cadastro"
+            id="email-cadastro"
+            placeholder="E-mail"
+            required
+            onblur="validarEmailCadastro()"
+          />
+        </div>
+        <span id="erro-email-cadastro"></span>
+
+        <label class="texto-fixo" for="telefone-cadastro">Telefone:</label
+        ><br />
+        <div class="campo-wrapper">
+          <!--
+            Usa type="text" porque a máscara insere parênteses e hífen, que um campo
+            numérico não aceitaria. O maxlength="15" é o tamanho de "(00) 00000-0000".
+            O oninput aplica a máscara a cada tecla digitada.
+          -->
+          <input
+            class="quadro"
+            type="text"
+            name="telefone-cadastro"
+            id="telefone-cadastro"
+            placeholder="(00) 00000-0000"
+            maxlength="15"
+            required
+            oninput="aplicarMascaraTelefone(event)"
+            onblur="validarTelefone()"
+          />
+        </div>
+        <span id="erro-telefone"></span>
+
+        <label class="texto-fixo" for="senha-cadastro">Senha:</label><br />
+        <div class="campo-wrapper senha-wrapper">
+          <input
+            class="quadro"
+            type="password"
+            name="senha-cadastro"
+            id="senha-cadastro"
+            placeholder="Senha"
+            required
+            onblur="validarSenhaCadastro()"
+          />
+          <button
+            type="button"
+            id="toggle-senha-cadastro"
+            class="toggle-senha"
+            onclick="alternarSenha('senha-cadastro', 'toggle-senha-cadastro')"
+            title="Mostrar/ocultar senha"
+          >
+            <span class="material-icons">visibility_off</span>
+          </button>
+        </div>
+        <span id="erro-senha-cadastro"></span>
+
+        <label class="texto-fixo" for="confirmar-senha-cadastro"
+          >Confirmar senha:</label
+        ><br />
+        <div class="campo-wrapper senha-wrapper">
+          <input
+            class="quadro"
+            type="password"
+            name="confirmar-senha-cadastro"
+            id="confirmar-senha-cadastro"
+            placeholder="Confirmar senha"
+            required
+            onblur="validarConfirmarSenha()"
+          />
+          <button
+            type="button"
+            id="toggle-confirmar-senha"
+            class="toggle-senha"
+            onclick="
+              alternarSenha(
+                'confirmar-senha-cadastro',
+                'toggle-confirmar-senha',
+              )
+            "
+            title="Mostrar/ocultar senha"
+          >
+            <span class="material-icons">visibility_off</span>
+          </button>
+        </div>
+        <span id="erro-confirmar-senha"></span>
+
+        <button class="botao" onclick="cadastrar(event)">Criar conta</button>
+
+        <a href="login.html" class="texto-link">Já tem conta? Entrar</a>
+      </form>
+
+      <!--
+        Começa escondida (classe "escondido"). O JavaScript a mostra quando o
+        cadastro é válido. Como não há servidor, a criação da conta é só simulada.
+      -->
+      <div id="confirmacao-cadastro" class="escondido">
+        <p class="texto-instrucao">
+          Conta criada! (Como ainda não temos um servidor por trás do site, isso
+          aqui é só uma simulação — mas o fluxo é esse.)
+        </p>
+        <a href="login.html" class="texto-link">Ir para o login</a>
+      </div>
+    </div>
+    <script src="../js/validacao.js"></script>
+    <script src="../js/cadastro.js"></script>
+  </body>
+</html>

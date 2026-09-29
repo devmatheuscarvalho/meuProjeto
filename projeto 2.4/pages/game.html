@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Faz a página se ajustar à largura do aparelho. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ØfferX – Red Dead Redemption 2</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link rel="stylesheet" href="../css/home.css" />
+    <link rel="icon" type="image/png" href="../img/content.png" />
+  </head>
+  <body>
+    <header>
+      <a href="home.html"><h2>ØfferX</h2></a>
+      <div class="campo-busca">
+        <span class="material-icons">search</span>
+        <input type="text" placeholder="Buscar jogos..." />
+      </div>
+      <a href="perfil.html"><h3>Meu perfil</h3></a>
+    </header>
+
+    <nav>
+      <button type="button">Ação/Aventura</button>
+      <button type="button">FPS</button>
+      <button type="button">RPG</button>
+      <button type="button">Estratégia</button>
+      <button type="button">Battle Royale</button>
+      <button type="button">MOBA</button>
+    </nav>
+
+    <main>
+      <div class="container-detalhe">
+        <h2>Red Dead Redemption 2</h2>
+
+        <div class="card-detalhe">
+          <div class="hero-detalhe">
+            <!-- O id permite que o JavaScript encontre esta imagem e troque o src. -->
+            <img
+              id="imagem-principal"
+              class="captura"
+              src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1174180/ss_4ce07ae360b166f0f650e9a895a3b4b7bf15e34f.1920x1080.jpg?t=1759502961"
+              alt="Imagem de Red Dead Redemption 2"
+            />
+            <div class="info-detalhe">
+              <img
+                class="capa"
+                src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1174180/header.jpg?t=1759502961"
+                alt="Capa de Red Dead Redemption 2"
+              />
+              <p class="descricao">
+                Arthur Morgan e a gangue Van der Linde são forçados a fugir. Com
+                agentes federais e caçadores de recompensas no seu encalço, a
+                gangue precisa roubar, assaltar e lutar para sobreviver no
+                impiedoso coração dos Estados Unidos.
+              </p>
+              <div class="meta-detalhes">
+                <span>
+                  Análises recentes:
+                  <span class="positivo">Muito positivas (13.839)</span>
+                </span>
+                <span>
+                  Análises em PT-BR:
+                  <span class="muito-positivo"
+                    >Extremamente positivas (50.478)</span
+                  >
+                </span>
+                <span>Data de lançamento: 5/dez./2019</span>
+                <span>
+                  Desenvolvedor:
+                  <span class="positivo">
+                    <a href="https://www.rockstargames.com/" target="_blank"
+                      >Rockstar Games</a
+                    >
+                  </span>
+                </span>
+                <span>
+                  Distribuidora:
+                  <span class="positivo">
+                    <a href="https://www.rockstargames.com/" target="_blank"
+                      >Rockstar Games</a
+                    >
+                  </span>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!--
+            Cada miniatura chama trocarImagem(this) ao ser clicada (js/game.js). A
+            primeira é a mesma imagem que começa como principal, para dar para voltar a ela.
+          -->
+          <div class="miniaturas-detalhe">
+            <img
+              src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1174180/ss_4ce07ae360b166f0f650e9a895a3b4b7bf15e34f.1920x1080.jpg?t=1759502961"
+              alt="Miniatura 1" class="selecionada"
+              onclick="trocarImagem(this)"
+            />
+            <img
+              src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1174180/ss_66b553f4c209476d3e4ce25fa4714002cc914c4f.1920x1080.jpg?t=1759502961"
+              alt="Miniatura 2"
+              onclick="trocarImagem(this)"
+            />
+            <img
+              src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1174180/ss_bac60bacbf5da8945103648c08d27d5e202444ca.1920x1080.jpg?t=1759502961"
+              alt="Miniatura 3"
+              onclick="trocarImagem(this)"
+            />
+            <img
+              src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1174180/ss_668dafe477743f8b50b818d5bbfcec669e9ba93e.1920x1080.jpg?t=1759502961"
+              alt="Miniatura 4"
+              onclick="trocarImagem(this)"
+            />
+          </div>
+
+          <div class="comparar-precos">
+            <span class="rotulo">Comparar preços:</span>
+
+            <div class="item-preco">
+              <span class="nome-loja">Steam</span>
+              <del>R$299,90</del>
+              <span class="preco-loja">R$89,90</span>
+            </div>
+
+            <span class="divisor-preco">|</span>
+
+            <div class="item-preco">
+              <span class="nome-loja">Epic Games</span>
+              <del>R$299,90</del>
+              <span class="preco-loja">R$119,90</span>
+            </div>
+
+            <span class="divisor-preco">|</span>
+
+            <div class="item-preco">
+              <span class="nome-loja">Nuuvem</span>
+              <del>R$299,90</del>
+              <span class="preco-loja">R$84,90</span>
+            </div>
+          </div>
+
+          <div class="acoes-detalhe">
+            <button type="button" class="btn-desejo">+ Lista de desejos</button>
+            <button type="button" class="btn-lista">Ver a sua lista</button>
+            <button type="button" class="btn-comprar">COMPRAR 🛒</button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <p>© 2026 ØfferX. Todos os direitos reservados.</p>
+    </footer>
+    <script src="../js/game.js"></script>
+  </body>
+</html>

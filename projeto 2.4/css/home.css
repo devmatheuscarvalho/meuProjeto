@@ -1,0 +1,477 @@
+/* Reset: tira as margens padrão do navegador. O box-sizing: border-box faz
+   padding e borda entrarem na largura definida, então width: 100% não estoura a tela.
+*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background: #050012;
+  color: white;
+}
+
+/* Flexbox: logo, busca e perfil ficam lado a lado. O space-between joga o
+   primeiro item para a esquerda e o último para a direita, e o align-items: center
+   alinha tudo na vertical.
+*/
+header {
+  background: #0d001d;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  gap: 16px;
+}
+
+header h2 {
+  font-size: 28px;
+}
+
+header a {
+  color: white;
+  text-decoration: none;
+}
+
+/* A lupa fica dentro do campo: o wrapper é position: relative e o ícone é
+   position: absolute, posicionado em relação a ele. O top: 50% com
+   translateY(-50%) centraliza o ícone na vertical. O pointer-events: none
+   deixa o clique passar pelo ícone e chegar no campo. */
+.campo-busca {
+  position: relative;
+  width: 500px;
+  max-width: 100%;
+}
+
+.campo-busca .material-icons {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  color: #c9b3ff;
+  pointer-events: none;
+}
+
+header input {
+  width: 100%;
+  padding: 10px 20px 10px 44px;
+  border: none;
+  border-radius: 20px;
+  background: #4b1f8f;
+  color: white;
+}
+
+/* O flex-wrap: wrap deixa os botões irem para a linha de baixo quando não
+   cabem, sem precisar de JavaScript.
+*/
+nav {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* O flex: 1 faz todos os botões dividirem o espaço igualmente. */
+nav button {
+  flex: 1;
+  border: none;
+  background: #4b1f8f;
+  color: white;
+  padding: 12px;
+  cursor: pointer;
+}
+
+nav button:hover {
+  background: #9d4edd;
+}
+
+nav button.ativa {
+  background: #9d4edd;
+}
+
+main .destaque {
+  text-align: center;
+  margin: 30px 0;
+}
+
+main .destaque h2 {
+  font-size: 34px;
+  margin-bottom: 15px;
+}
+
+main .destaque h3 {
+  font-weight: normal;
+}
+
+.aviso-vazio {
+  display: none;
+  text-align: center;
+  color: #d4c3ff;
+  padding: 20px 0 40px;
+}
+
+/* Grade (CSS Grid) com 3 colunas iguais (1fr cada) e espaço de 35px entre os cards. */
+main .lista-jogos {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 35px;
+  width: 90%;
+  margin: auto;
+  padding-bottom: 40px;
+}
+
+.link-jogo {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* O card que está dentro do link precisa ocupar toda a altura do link, que
+   por sua vez estica até o fim da linha da grade. Sem isso, ele ficava mais
+   baixo que os outros cards. */
+.link-jogo article {
+  height: 100%;
+}
+
+article {
+  background: #4b1f8f;
+  border-radius: 8px;
+}
+
+article img {
+  width: 100%;
+  height: 320px;
+  border-radius: 8px 8px 0 0;
+  background-color: #2a1350;
+}
+
+article p,
+article h4 {
+  padding: 0 12px;
+}
+
+article h4 {
+  margin: 10px 0;
+  color: #d4c3ff;
+  font-weight: normal;
+}
+
+.plataforma {
+  margin-top: 10px;
+  color: #cfc2f8;
+  font-size: 13px;
+}
+
+del {
+  color: #8f7abf;
+}
+
+.preco-novo {
+  color: #00ff66;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.tempo-restante {
+  text-align: center;
+  color: #ff6600;
+  margin: 15px 0;
+  font-size: 13px;
+}
+
+footer {
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #0d001d;
+  color: white;
+}
+
+/* Telas grandes: limita a largura do conteúdo e centraliza, para não esticar
+   demais em monitores largos.
+*/
+@media (min-width: 1200px) {
+  main {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+}
+
+/* Tablets e celulares (até 900px): cabeçalho e menu empilham os itens
+   (flex-direction: column) e a grade passa a ter 2 colunas.
+*/
+@media (max-width: 900px) {
+  header {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .campo-busca {
+    width: 100%;
+  }
+
+  nav {
+    flex-direction: column;
+  }
+
+  nav button {
+    width: 100%;
+  }
+
+  main .lista-jogos {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Celulares (até 480px): fontes menores e grade com uma coluna só. */
+@media (max-width: 480px) {
+  header h2 {
+    font-size: 22px;
+  }
+
+  main .destaque h2 {
+    font-size: 22px;
+  }
+
+  main .lista-jogos {
+    grid-template-columns: 1fr;
+    width: 95%;
+    gap: 20px;
+  }
+
+  article img {
+    height: 200px;
+  }
+}
+
+.container-detalhe {
+  width: 90%;
+  max-width: 1100px;
+  margin: 40px auto 60px;
+}
+
+.container-detalhe h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #d4c3ff;
+}
+
+.card-detalhe {
+  background: #4b1f8f;
+  border-radius: 8px;
+}
+
+/* Grade de duas colunas: imagem grande (1.4fr) e informações (1fr), então a
+   primeira coluna é um pouco mais larga.
+*/
+.hero-detalhe {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+}
+
+.hero-detalhe img.captura {
+  width: 100%;
+  height: 340px;
+  display: block;
+  padding: 20px;
+}
+
+.info-detalhe {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.info-detalhe img.capa {
+  width: 100%;
+  height: 160px;
+  border-radius: 6px;
+}
+
+.info-detalhe p.descricao {
+  font-size: 13px;
+  color: #cfc2f8;
+  line-height: 1.6;
+}
+
+.meta-detalhes {
+  font-size: 12px;
+  color: #c9b4ff;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.meta-detalhes span.positivo {
+  color: #4fc3f7;
+}
+.meta-detalhes span.positivo a,
+.meta-detalhes span.positivo a:visited {
+  color: inherit;
+  text-decoration: none;
+}
+.meta-detalhes span.positivo a:hover {
+  text-decoration: underline;
+}
+
+.meta-detalhes span.muito-positivo {
+  color: #00e676;
+}
+
+/* O flex-wrap: wrap manda as miniaturas para a linha de baixo quando a tela é estreita. */
+.miniaturas-detalhe {
+  display: flex;
+  gap: 10px;
+  padding: 14px 16px;
+  background: #3a1870;
+  border-radius: 8px;
+  flex-wrap: wrap;
+}
+
+/* A borda começa transparente para a miniatura não mudar de tamanho quando
+   ficar colorida. O cursor: pointer mostra que a imagem é clicável.
+*/
+.miniaturas-detalhe img {
+  width: 120px;
+  height: 68px;
+  border-radius: 4px;
+  border: 2px solid transparent;
+  cursor: pointer;
+}
+
+/* A borda roxa aparece ao passar o mouse e na miniatura selecionada (a classe
+   "selecionada" é adicionada pelo JavaScript).
+*/
+.miniaturas-detalhe img:hover,
+.miniaturas-detalhe img.selecionada {
+  border-color: #9d4edd;
+}
+
+/* Flexbox com wrap: as lojas ficam lado a lado e quebram de linha quando faltar espaço. */
+.comparar-precos {
+  background: #2a0f5a;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.comparar-precos span.rotulo {
+  font-size: 12px;
+  color: #c9b4ff;
+  margin-right: 4px;
+}
+
+.item-preco {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.item-preco .nome-loja {
+  font-size: 12px;
+  font-weight: bold;
+  color: #d4c3ff;
+  background: #4b1f8f;
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+
+.item-preco .preco-loja {
+  font-size: 18px;
+  font-weight: bold;
+  color: #00ff66;
+}
+
+.item-preco del {
+  color: #8f7abf;
+  font-size: 12px;
+}
+
+.divisor-preco {
+  color: #4b1f8f;
+  font-size: 20px;
+}
+
+.acoes-detalhe {
+  padding: 14px 20px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  background: #3a1870;
+  flex-wrap: wrap;
+}
+
+.btn-desejo,
+.btn-lista {
+  border: 1px solid #7b3fe4;
+  background: transparent;
+  color: #c9b4ff;
+  padding: 9px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.btn-desejo:hover,
+.btn-lista:hover {
+  background: #4b1f8f;
+}
+
+/* O margin-left: auto empurra o botão para o canto direito, usando todo o
+   espaço livre da linha.
+*/
+.btn-comprar {
+  margin-left: auto;
+  background: #00c853;
+  color: #fff;
+  border: none;
+  padding: 10px 28px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn-comprar:hover {
+  background: #00e676;
+}
+
+/* Página do jogo em tablets e celulares: a grade vira uma coluna, a barra de
+   preços empilha e o botão de comprar deixa de ir para a direita.
+*/
+@media (max-width: 900px) {
+  .hero-detalhe {
+    grid-template-columns: 1fr;
+  }
+  .hero-detalhe img.captura {
+    height: 220px;
+  }
+  .comparar-precos {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .btn-comprar {
+    margin-left: 0;
+  }
+}
+
+/* Celulares: os botões de ação empilham e ocupam toda a largura. */
+@media (max-width: 480px) {
+  .container-detalhe h2 {
+    font-size: 22px;
+  }
+  .acoes-detalhe {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .btn-comprar {
+    margin-left: 0;
+    text-align: center;
+  }
+}

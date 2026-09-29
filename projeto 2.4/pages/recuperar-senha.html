@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ØfferX - Recuperar senha</title>
+    <link rel="stylesheet" href="../css/login.css" />
+    <link rel="stylesheet" href="../css/auth-mensagens.css" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/png" href="../img/content.png" />
+  </head>
+  <body id="body">
+    <div id="card">
+      <h1 class="texto-destaque">Recuperar senha</h1>
+
+      <form id="form-recuperar">
+        <p class="texto-instrucao">
+          Digite o e-mail da sua conta. Vamos enviar um link para você criar uma
+          nova senha.
+        </p>
+
+        <label class="texto-fixo" for="email-recuperar">E-mail:</label><br />
+        <div class="campo-wrapper">
+          <input
+            class="quadro"
+            type="email"
+            name="email-recuperar"
+            id="email-recuperar"
+            placeholder="E-mail"
+            required
+            onblur="validarEmailRecuperacao()"
+          />
+        </div>
+        <span id="erro-email-recuperar"></span>
+
+        <button class="botao" onclick="enviarRecuperacao(event)">
+          Enviar link de recuperação
+        </button>
+
+        <a href="login.html" class="texto-link">Voltar para o login</a>
+      </form>
+
+      <div id="confirmacao-envio" class="escondido">
+        <p class="texto-instrucao">
+          Se o e-mail <strong id="email-enviado"></strong> estiver cadastrado,
+          você vai receber um link para redefinir sua senha em instantes.
+        </p>
+        <a href="login.html" class="texto-link">Voltar para o login</a>
+      </div>
+    </div>
+    <script src="../js/validacao.js"></script>
+    <script src="../js/recuperar-senha.js"></script>
+  </body>
+</html>
