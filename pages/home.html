@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <!--
+      Faz a página se ajustar à largura do aparelho. Sem esta linha, o celular
+      mostraria o site como uma tela de computador encolhida.
+    -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ØfferX</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link rel="stylesheet" href="../css/home.css" />
+    <link rel="icon" type="image/png" href="../img/content.png" />
+  </head>
+  <body>
+    <header class="cabecalho">
+      <a href="home.html"><h2>ØfferX</h2></a>
+
+      <div class="campo-busca">
+        <span class="material-icons">search</span>
+        <input type="text" placeholder="Buscar Jogos..." />
+      </div>
+
+      <a href="perfil.html"><h3>Meu perfil</h3></a>
+    </header>
+
+    <!--
+      Cada botão chama filtrarJogos() (js/filtro.js), passando a categoria e o
+      própio botão (this), que é usado para marcar qual está ativo.
+    -->
+    <nav class="menu-categorias">
+      <button type="button" class="ativa" onclick="filtrarJogos('todos', this)">Todos</button>
+      <button type="button" onclick="filtrarJogos('acao', this)">Ação/Aventura</button>
+      <button type="button" onclick="filtrarJogos('fps', this)">FPS</button>
+      <button type="button" onclick="filtrarJogos('rpg', this)">RPG</button>
+      <button type="button" onclick="filtrarJogos('estrategia', this)">Estratégia</button>
+      <button type="button" onclick="filtrarJogos('battle-royale', this)">Battle Royale</button>
+      <button type="button" onclick="filtrarJogos('moba', this)">MOBA</button>
+    </nav>
+
+    <main>
+      <section class="destaque">
+        <h2>Descubra os melhores jogos com ofertas incríveis!</h2>
+        <h3>Recomendados para você</h3>
+      </section>
+
+      <!--
+        Cada card tem a classe "jogo" e o atributo data-categoria, que o
+        JavaScript lê para decidir se o card fica visível ou escondido.
+      -->
+      <section class="lista-jogos">
+        <!--
+          A classe "jogo" fica no <a> porque ele é o item da grade que precisa ser
+          escondido. Se escondêssemos só o article, sobraria um espaço vazio.
+        -->
+        <a href="game.html" class="link-jogo jogo" data-categoria="acao">
+          <article>
+            <img
+              src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1174180/header.jpg?t=1759502961"
+              alt="Red Dead Redemption 2"
+              width="200"
+            />
+            <p class="plataforma">PC</p>
+            <h4>Red Dead Redemption 2</h4>
+            <p class="preco-antigo"><del>R$299,90</del></p>
+            <p class="preco-novo">R$89,90</p>
+            <p class="tempo-restante">1d restante</p>
+          </article>
+        </a>
+
+        <article class="jogo" data-categoria="acao">
+          <img
+            src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3240220/header.jpg?t=1765479644"
+            alt="GTA V"
+            width="200"
+          />
+          <p class="plataforma">PC</p>
+          <h4>Grand Theft Auto V</h4>
+          <p class="preco-antigo"><del>R$149,90</del></p>
+          <p class="preco-novo">R$75,90</p>
+          <p class="tempo-restante">1d restante</p>
+        </article>
+
+        <article class="jogo" data-categoria="acao">
+          <img
+            src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1850570/header.jpg?t=1773400635"
+            alt="Death Stranding"
+            width="200"
+          />
+          <p class="plataforma">PC</p>
+          <h4>Death Stranding</h4>
+          <p class="preco-antigo"><del>R$159,90</del></p>
+          <p class="preco-novo">R$55,65</p>
+          <p class="tempo-restante">1d restante</p>
+        </article>
+
+        <article class="jogo" data-categoria="fps">
+          <img
+            src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1808500/04baafaf64a5aa5f46ecda5d71889a4848dc0628/header.jpg?t=1776865359"
+            alt="ARC Raiders"
+            width="200"
+          />
+          <p class="plataforma">PC</p>
+          <h4>ARC Raiders</h4>
+          <p class="preco-antigo"><del>R$171,80</del></p>
+          <p class="preco-novo">R$136,90</p>
+          <p class="tempo-restante">1d restante</p>
+        </article>
+
+        <article class="jogo" data-categoria="acao">
+          <img
+            src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/391220/header.jpg?t=1766187095"
+            alt="Rise of Tomb Raider"
+            width="200"
+          />
+          <p class="plataforma">PC</p>
+          <h4>Rise of Tomb Raider</h4>
+          <p class="preco-antigo"><del>R$124,99</del></p>
+          <p class="preco-novo">R$18,74</p>
+          <p class="tempo-restante">1d restante</p>
+        </article>
+
+        <article class="jogo" data-categoria="acao">
+          <img
+            src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1020790/header.jpg?t=1727301927"
+            alt="Naruto Storm Connections"
+            width="200"
+          />
+          <p class="plataforma">PC</p>
+          <h4>NARUTO X BORUTO Storm Connections</h4>
+          <p class="preco-antigo"><del>R$327,50</del></p>
+          <p class="preco-novo">R$131,00</p>
+          <p class="tempo-restante">1d restante</p>
+        </article>
+
+        <article class="jogo" data-categoria="rpg">
+          <img
+            src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/292030/header.jpg"
+            alt="The Witcher 3 Wild Hunt"
+            width="200"
+          />
+          <p class="plataforma">PC</p>
+          <h4>The Witcher 3: Wild Hunt</h4>
+          <p class="preco-antigo"><del>R$99,90</del></p>
+          <p class="preco-novo">R$29,97</p>
+          <p class="tempo-restante">1d restante</p>
+        </article>
+
+        <article class="jogo" data-categoria="estrategia">
+          <img
+            src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1466860/header.jpg"
+            alt="Age of Empires IV"
+            width="200"
+          />
+          <p class="plataforma">PC</p>
+          <h4>Age of Empires IV</h4>
+          <p class="preco-antigo"><del>R$199,00</del></p>
+          <p class="preco-novo">R$99,50</p>
+          <p class="tempo-restante">1d restante</p>
+        </article>
+      </section>
+
+      <p id="aviso-vazio" class="aviso-vazio">Nenhum jogo nesta categoria por enquanto.</p>
+    </main>
+
+    <footer>
+      <p>© 2026 ØfferX. Todos os direitos reservados.</p>
+    </footer>
+    <!--
+      O script fica no fim do body para que os botões e cards já existam
+      quando o código carregar.
+    -->
+    <script src="../js/filtro.js"></script>
+  </body>
+</html>

@@ -1,0 +1,168 @@
+/* Flexbox centraliza o cartão na horizontal (justify-content) e na vertical
+   (align-items). O min-height: 100vh faz o body ocupar pelo menos a altura da tela.
+*/
+#body {
+  background-color: #0d0222;
+  min-height: 100vh;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* O width: 100% com max-width: 420px faz o cartão encolher em telas pequenas,
+   mas nunca passar de 420px em telas grandes.
+*/
+#card {
+  background-color: #3c186e;
+  padding: 48px;
+  border-radius: 15px;
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  border: 1px solid #2a0f5a;
+}
+
+.quadro {
+  border: none;
+  background-color: transparent;
+  margin: 0;
+  padding: 10px;
+}
+
+.texto-destaque {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 32px;
+  font-weight: bold;
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.texto-fixo {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  color: #ffffff;
+  margin: 10px;
+}
+
+.texto-link {
+  display: block;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  color: #1e94c7;
+  margin: 10px;
+  cursor: pointer;
+  text-decoration: none;
+}
+.texto-link:hover {
+  color: white;
+}
+
+.botao {
+  border-radius: 6px;
+  width: 100%;
+  height: 44px;
+  cursor: pointer;
+}
+.botao:hover {
+  background-color: #0d0222;
+  color: white;
+}
+
+.campo-wrapper {
+  width: 100%;
+  border: 1px solid #6a3fa0;
+  border-radius: 6px;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  background-color: white;
+}
+.campo-wrapper .quadro {
+  width: 100%;
+  box-sizing: border-box;
+}
+/* Flexbox para colocar o campo de senha e o botão do olho lado a lado. */
+.senha-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+/* O flex: 1 faz o campo ocupar todo o espaço que o botão do olho deixa livre. */
+.senha-wrapper .quadro {
+  flex: 1;
+}
+
+.toggle-senha {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+}
+
+/* Reserva um espaço mínimo para as mensagens de erro, evitando que o
+   formulário "pule" quando uma mensagem aparece.
+*/
+#erro-email,
+#erro-senha,
+#erro-nome,
+#erro-email-cadastro,
+#erro-telefone,
+#erro-senha-cadastro,
+#erro-confirmar-senha,
+#erro-email-recuperar {
+  display: block;
+  min-height: 1rem;
+  margin-top: 4px;
+  margin-left: 5px;
+  clear: both;
+}
+
+.alerta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: fit-content;
+  font-size: 0.75rem;
+  padding: 6px 10px;
+  border-radius: 6px;
+  margin-top: 4px;
+}
+
+.alerta .material-icons {
+  font-size: 16px;
+}
+
+.alerta-erro {
+  background-color: #4a1f1f;
+  color: #ff8080;
+  border: 1px solid #7a3333;
+}
+
+.alerta-sucesso {
+  background-color: #123527;
+  color: #6effa8;
+  border: 1px solid #1f5c3f;
+}
+
+/* Tablets: reduz o espaço interno do cartão. */
+@media (max-width: 768px) {
+  #card {
+    padding: 32px;
+  }
+}
+
+/* Celulares: reduz mais o espaço interno e o tamanho do título. */
+@media (max-width: 480px) {
+  #card {
+    padding: 24px;
+  }
+
+  .texto-destaque {
+    font-size: 26px;
+  }
+}

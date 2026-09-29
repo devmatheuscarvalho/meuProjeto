@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ØfferX</title>
+    <link rel="stylesheet" href="../css/login.css" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/png" href="../img/content.png" />
+  </head>
+  <body id="body">
+    <div id="card">
+      <h1 class="texto-destaque">Login</h1>
+      <form>
+        <label class="texto-fixo" for="resemail">E-mail:</label><br />
+        <div class="campo-wrapper email-wrapper">
+          <!--
+            O onblur chama a validação assim que o usuário sai do campo. O required
+            impede o envio com o campo vazio.
+          -->
+          <input
+            class="quadro"
+            type="email"
+            name="resemail"
+            id="resemail"
+            placeholder="E-mail"
+            required
+            onblur="validarEmail()"
+          />
+        </div>
+        <span id="erro-email"></span>
+        <label class="texto-fixo" for="ressenha">Senha:</label> <br />
+        <div class="campo-wrapper senha-wrapper">
+          <input
+            class="quadro"
+            type="password"
+            name="ressenha"
+            id="ressenha"
+            placeholder="Senha"
+            required
+            onblur="validarSenha()"
+          />
+
+          <!--
+            O type="button" é importante: sem ele, o botão enviaria o formulário
+            ao ser clicado.
+          -->
+          <button
+            type="button"
+            id="toggle-senha"
+            class="toggle-senha"
+            onclick="alternarSenha('ressenha', 'toggle-senha')"
+            title="Mostrar/ocultar senha"
+          >
+            <span class="material-icons">visibility_off</span>
+          </button>
+        </div>
+        <span id="erro-senha"></span>
+
+        <a href="cadastro.html" class="texto-link">Criar conta</a>
+        <a href="recuperar-senha.html" class="texto-link">Esqueceu a senha?</a>
+        <button class="botao" onclick="acessar(event)">Acessar</button>
+      </form>
+    </div>
+    <!--
+      A ordem importa: o validacao.js vem primeiro porque o login.js usa as
+      funções e regex definidas nele.
+    -->
+    <script src="../js/validacao.js"></script>
+    <script src="../js/login.js"></script>
+  </body>
+</html>

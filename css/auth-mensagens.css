@@ -1,0 +1,14 @@
+.texto-instrucao {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  color: #d4c3ff;
+  margin: 0 10px 16px;
+  line-height: 1.5;
+}
+
+/* Esconde um elemento. O JavaScript adiciona e remove essa classe para
+   alternar entre o formulário e a mensagem de confirmação.
+*/
+.escondido {
+  display: none;
+}
